@@ -1,4 +1,6 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "Serie.h"
 #include <string.h>
 
@@ -41,6 +43,52 @@ void inicializarSeriesHardCode(eSerie series[])
     }
 }
 
+void mostrarUnaSerie(eSerie serie)
+{
+    printf("%11d | %10s | %15s | %22d", serie.idSerie, serie.nombre, serie.genero, serie.cantidadTemporadas);
+}
+
+void mostrarListaSeries(eSerie listado[], int cantidad)
+{
+    int indice;
+    if(listado != NULL && cantidad > 0)
+    {
+        printf("%s | %10s | %15s | %s\n", "ID de serie", "Nombre", "Genero", "Cantidad de temporadas");
+        for(indice = 0; indice < cantidad; indice++)
+        {
+            if(listado[indice].estado != 0)
+            {
+                mostrarUnaSerie(listado[indice]);
+            }
+        }
+    }
+
+}
+
+int buscarIdSerie(eSerie listado[], int cantidad, int identificador)
+{
+    int retorno = -1;
+    int indice;
+    if(listado != NULL && cantidad > 0)
+    {
+        for(indice = 0; indice < cantidad; indice++)
+        {
+            if(listado[indice].idSerie == identificador)
+            {
+                retorno = -2;
+                if(listado[indice].estado != 0)
+                {
+                    retorno = indice;
+                    break;
+                } else
+                {
+                    break;
+                }
+            }
+        }
+    }
+    return retorno;
+}
 
 
 

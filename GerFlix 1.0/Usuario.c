@@ -42,7 +42,7 @@ void mostrarUsuario(eUsuario usuario)
 
 void mostrarUsuarioSinIdDeSerie(eUsuario usuario)
 {
-    printf("13%d | %10s", usuario.idUsuario , usuario.nombre);
+    printf("%13d | %10s", usuario.idUsuario , usuario.nombre);
 }
 
 void mostrarListaUsuarios(eUsuario listado[], int cantidad)
@@ -106,12 +106,12 @@ int buscarIdUsuario(eUsuario listado[], int cantidad, int identificador)
 void mostrarListadoUsuarioConSuSerie(eUsuario listadoUsuarios[], int cantidadUsuarios, eSerie listadoSeries[], int cantidadSeries)
 {
     int indice;
-    if(listadosUsuario != NULL && cantidadUsuarios > 0 && listadoSeries != NULL && cantidadSeries > 0)
+    if(listadoUsuarios != NULL && cantidadUsuarios > 0 && listadoSeries != NULL && cantidadSeries > 0)
     {
-        printf("%13s | %10s | %11s | %10s | %15s | %s\n", "ID de usuario", "Nombre", "ID de serie", "Nombre", "Genero", "Cantidad de temporadas");
+        printf("%13s | %10s | %11s | %15s | %15s | %s\n", "ID de usuario", "Nombre", "ID de serie", "Nombre de serie", "Genero", "Cantidad de temporadas");
         for(indice = 0; indice < cantidadUsuarios; indice++)
         {
-            if(listadoUsuario[indice].estado != 0)
+            if(listadoUsuarios[indice].estado != 0)
             {
                 mostrarUsuarioConSuSerie(listadoUsuarios[indice], listadoSeries, cantidadSeries);
                 printf("\n");
@@ -119,7 +119,7 @@ void mostrarListadoUsuarioConSuSerie(eUsuario listadoUsuarios[], int cantidadUsu
         }
     }
 }
-
+/*
 void mostrarListadoSeriesConUsuarios(eSerie listadoSeries[], int cantidadSeries, eUsuario listadoUsuario, int cantidadUsuarios)
 {
     int indice;
@@ -131,3 +131,4 @@ void mostrarListadoSeriesConUsuarios(eSerie listadoSeries[], int cantidadSeries,
         }
     }
 }
+*/
